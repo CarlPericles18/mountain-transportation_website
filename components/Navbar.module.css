@@ -118,12 +118,15 @@
         height: 100vh;
         background-color: var(--color-primary);
         z-index: 1001;
-        padding-top: 5rem;
+        padding-top: 0;
+        /* Remove fixed padding to allow full center */
         transform: translateX(100%);
         transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
+        /* Center vertically */
     }
 
     .mobileMenu.open {
@@ -134,8 +137,11 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 2.5rem;
+        gap: 3rem;
+        /* Increase gap slightly */
         width: 100%;
+        margin-top: 2rem;
+        /* Add a little offset if needed, or keep centered */
     }
 
     .mobileLink {
