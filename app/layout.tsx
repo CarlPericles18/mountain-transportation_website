@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Script from 'next/script' // Import Script component
 import './globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
@@ -26,6 +27,10 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+
+        {/* Botpress Chatbot Scripts */}
+        <Script src="https://cdn.botpress.cloud/webchat/v3.5/inject.js" strategy="afterInteractive" />
+        <Script src="https://files.bpcontent.cloud/2025/12/06/02/20251206020509-3EQ022CC.js" defer strategy="lazyOnload" />
       </body>
     </html>
   )
