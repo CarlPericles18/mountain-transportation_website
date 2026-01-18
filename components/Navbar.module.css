@@ -1,11 +1,11 @@
 .navbar {
     background-color: var(--color-primary);
     color: white;
-    padding: 1.5rem 0;
+    padding: 1.25rem 0;
     box-shadow: var(--shadow-md);
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
 }
 
 .container {
@@ -19,96 +19,54 @@
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
+    z-index: 1002;
+    /* Above mobile menu */
+    position: relative;
+    color: white;
 }
 
 .highlight {
     color: var(--color-accent);
 }
 
-.links {
+/* Desktop Links */
+.desktopLinks {
     display: flex;
     gap: 2rem;
     align-items: center;
 }
 
-.link {
+/* Common Link Styles */
+.link,
+.mobileLink {
     font-weight: 500;
     transition: all 0.2s ease;
-    font-size: 0.95rem;
     color: white;
-    /* Explicitly white */
     position: relative;
-    padding-bottom: 2px;
 }
 
+/* Hover Effect for Desktop */
 .link:after {
     content: '';
     position: absolute;
     width: 0;
     height: 2px;
-    bottom: 0;
+    bottom: -4px;
     left: 0;
     background-color: var(--color-accent);
     transition: width 0.3s;
 }
 
-/* Hover: Keep text same color (white), show underline */
-.link:hover {
-    color: white;
-}
-
-.link:hover:after {
-    width: 100%;
-}
-
-/* Active State */
-.active {
-    color: var(--color-accent);
-    /* Only active page gets the color */
-}
-
+.link:hover:after,
 .active:after {
     width: 100%;
 }
 
-.mobileToggle {
-    display: none;
-    z-index: 101;
+.active {
+    color: var(--color-accent);
 }
 
-@media (max-width: 768px) {
-    .mobileToggle {
-        display: block;
-    }
-
-    .links {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        height: 100vh;
-        width: 70%;
-        background-color: var(--color-primary);
-        flex-direction: column;
-        justify-content: center;
-        transition: right 0.3s ease-in-out;
-        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
-        padding: 2rem;
-        z-index: 1000;
-        /* Ensure it stays on top */
-    }
-
-    .links.open {
-        right: 0;
-    }
-
-    .link {
-        font-size: 1.25rem;
-        width: 100%;
-        text-align: center;
-        padding: 1rem 0;
-    }
-}
-
+/* CTA Button */
 .cta {
     background-color: var(--color-accent);
     color: var(--color-primary);
@@ -119,11 +77,75 @@
 
 .cta:hover {
     background-color: var(--color-accent-hover);
-    color: var(--color-primary-light);
     transform: translateY(-2px);
 }
 
 .cta:after {
     display: none;
-    /* No underline for button */
+}
+
+/* Mobile Toggle */
+.mobileToggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: white;
+    z-index: 1002;
+    padding: 0.5rem;
+}
+
+/* Mobile Fullscreen Menu */
+.mobileMenu {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .desktopLinks {
+        display: none;
+    }
+
+    .mobileToggle {
+        display: block;
+    }
+
+    .mobileMenu {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: var(--color-primary);
+        z-index: 1001;
+        padding-top: 5rem;
+        transform: translateX(100%);
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .mobileMenu.open {
+        transform: translateX(0);
+    }
+
+    .mobileLinksContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2.5rem;
+        width: 100%;
+    }
+
+    .mobileLink {
+        font-size: 1.75rem;
+        font-weight: 600;
+    }
+
+    .mobileLink.cta {
+        margin-top: 1rem;
+        padding: 1rem 3rem;
+        font-size: 1.25rem;
+    }
 }

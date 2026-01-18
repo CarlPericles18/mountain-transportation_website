@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   description: 'Licensed and insured transport company providing reliable travel services in Atlanta, GA and surrounding areas.',
 }
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+}
+
 export default function RootLayout({
   children,
 }: {
