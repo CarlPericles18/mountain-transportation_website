@@ -30,7 +30,7 @@ export default function RootLayout({
 
         {/* Botpress Chatbot Scripts */}
         <Script src="https://cdn.botpress.cloud/webchat/v3.5/inject.js" strategy="afterInteractive" />
-        <Script src="https://files.bpcontent.cloud/2025/12/06/02/20251206020509-3EQ022CC.js" defer strategy="lazyOnload" />
+        <Script src="https://files.bpcontent.cloud/2025/12/06/02/20251206020509-3EQ022CC.js" strategy="afterInteractive" />
       </body>
     </html>
   )
