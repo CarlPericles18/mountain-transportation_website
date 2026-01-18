@@ -93,6 +93,8 @@
         transition: right 0.3s ease-in-out;
         box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
         padding: 2rem;
+        z-index: 1000;
+        /* Ensure it stays on top */
     }
 
     .links.open {
