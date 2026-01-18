@@ -71,6 +71,42 @@
     width: 100%;
 }
 
+.mobileToggle {
+    display: none;
+    z-index: 101;
+}
+
+@media (max-width: 768px) {
+    .mobileToggle {
+        display: block;
+    }
+
+    .links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: 100vh;
+        width: 70%;
+        background-color: var(--color-primary);
+        flex-direction: column;
+        justify-content: center;
+        transition: right 0.3s ease-in-out;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+        padding: 2rem;
+    }
+
+    .links.open {
+        right: 0;
+    }
+
+    .link {
+        font-size: 1.25rem;
+        width: 100%;
+        text-align: center;
+        padding: 1rem 0;
+    }
+}
+
 .cta {
     background-color: var(--color-accent);
     color: var(--color-primary);
