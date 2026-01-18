@@ -1,0 +1,91 @@
+.navbar {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 1.5rem 0;
+    box-shadow: var(--shadow-md);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.highlight {
+    color: var(--color-accent);
+}
+
+.links {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.link {
+    font-weight: 500;
+    transition: all 0.2s ease;
+    font-size: 0.95rem;
+    color: white;
+    /* Explicitly white */
+    position: relative;
+    padding-bottom: 2px;
+}
+
+.link:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--color-accent);
+    transition: width 0.3s;
+}
+
+/* Hover: Keep text same color (white), show underline */
+.link:hover {
+    color: white;
+}
+
+.link:hover:after {
+    width: 100%;
+}
+
+/* Active State */
+.active {
+    color: var(--color-accent);
+    /* Only active page gets the color */
+}
+
+.active:after {
+    width: 100%;
+}
+
+.cta {
+    background-color: var(--color-accent);
+    color: var(--color-primary);
+    padding: 0.5rem 1.25rem;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+}
+
+.cta:hover {
+    background-color: var(--color-accent-hover);
+    color: var(--color-primary-light);
+    transform: translateY(-2px);
+}
+
+.cta:after {
+    display: none;
+    /* No underline for button */
+}
