@@ -1,5 +1,4 @@
 import { NextResponse } from 'next/server';
-import { PrismaClient } from '@prisma/client';
 
 export async function POST(request: Request) {
     try {
@@ -8,33 +7,22 @@ export async function POST(request: Request) {
 
         // Validate input
         if (!name || !email || !phone || !message) {
-            return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
+            return NextResponse.json(
+                { error: 'All fields are required' },
+                { status: 400 }
+            );
         }
 
-        try {
-            // Lazy instantiate Prisma to avoid build-time issues
-            const prisma = new PrismaClient();
+        // Mock success - In the future, we can add database logic here
+        console.log('Contact form submitted:', { name, email, phone, message });
 
-            // Attempt to save to database
-            const inquiry = await prisma.inquiry.create({
-                data: { name, email, phone, message },
-            });
-
-            // Close connection to avoid leaks in serverless (optional, but good for lazy simple usage)
-            await prisma.$disconnect();
-
-            return NextResponse.json({ success: true, data: inquiry });
-        } catch (dbError) {
-            console.error('Database Error:', dbError);
-            return NextResponse.json({
-                success: true,
-                warning: 'Saved locally (DB connection failed)',
-                data: { name, email, phone, message }
-            });
-        }
+        return NextResponse.json({ success: true, message: 'Message sent successfully!' });
 
     } catch (error) {
-        console.error('Request Error:', error);
-        return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
+        console.error('Error submitting contact form:', error);
+        return NextResponse.json(
+            { error: 'Failed to send message' },
+            { status: 500 }
+        );
     }
 }
