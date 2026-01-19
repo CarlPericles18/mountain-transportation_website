@@ -50,6 +50,56 @@ export default function Home() {
         </div>
       </section>
 
+      {/* NEW: Destinations / Service Areas Section */}
+      <section className="section" style={{ backgroundColor: 'white' }}>
+        <div className="container">
+          <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+            <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem', color: 'var(--color-primary)' }}>Service Areas</h2>
+            <p style={{ color: 'var(--color-text-light)', maxWidth: '600px', margin: '0 auto' }}>
+              We provide premium transportation across the Southeast, connecting you to the region's best destinations.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-3" style={{ gap: '1.5rem' }}>
+            {/* Destination 1: Blue Ridge */}
+            <div style={{ position: 'relative', height: '300px', borderRadius: 'var(--radius-lg)', overflow: 'hidden', boxShadow: 'var(--shadow-md)' }}>
+              <img
+                src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt="Blue Ridge Mountains"
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              />
+              <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '1.5rem', background: 'linear-gradient(to top, rgba(0,0,0,0.8), transparent)', color: 'white' }}>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: 600 }}>Blue Ridge, GA</h3>
+              </div>
+            </div>
+
+            {/* Destination 2: Atlanta */}
+            <div style={{ position: 'relative', height: '300px', borderRadius: 'var(--radius-lg)', overflow: 'hidden', boxShadow: 'var(--shadow-md)' }}>
+              <img
+                src="https://images.unsplash.com/photo-1575917649705-5b59aaa12e6b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt="Atlanta Skyline"
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              />
+              <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '1.5rem', background: 'linear-gradient(to top, rgba(0,0,0,0.8), transparent)', color: 'white' }}>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: 600 }}>Atlanta, GA</h3>
+              </div>
+            </div>
+
+            {/* Destination 3: TN/NC */}
+            <div style={{ position: 'relative', height: '300px', borderRadius: 'var(--radius-lg)', overflow: 'hidden', boxShadow: 'var(--shadow-md)' }}>
+              <img
+                src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt="Scenic Highway"
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              />
+              <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '1.5rem', background: 'linear-gradient(to top, rgba(0,0,0,0.8), transparent)', color: 'white' }}>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: 600 }}>TN & NC</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Trust/About Highlight */}
       <section className="section" style={{ backgroundColor: 'var(--color-background-alt)' }}>
         <div className="container">
@@ -68,15 +118,19 @@ export default function Home() {
                 Learn More About Us
               </Link>
             </div>
-            {/* Placeholder for an image */}
+            {/* Authentic Company Vibe Image */}
             <div style={{
               height: '400px',
-              backgroundColor: '#e2e8f0',
               borderRadius: 'var(--radius-lg)',
-              backgroundImage: 'url(https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1740&q=80)',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center'
-            }}></div>
+              overflow: 'hidden',
+              boxShadow: 'var(--shadow-lg)'
+            }}>
+              <img
+                src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1740&q=80"
+                alt="Luxury Transport"
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              />
+            </div>
           </div>
         </div>
       </section>
